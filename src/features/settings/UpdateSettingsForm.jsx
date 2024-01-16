@@ -4,6 +4,7 @@ import Input from "../../ui/Input";
 import Spinner from "../../ui/Spinner";
 import { useSettings } from "./useSettings";
 import { useUpdateSetting } from "./useUpdateSetting";
+import { toast } from "react-hot-toast";
 
 function UpdateSettingsForm() {
   const {
@@ -21,6 +22,8 @@ function UpdateSettingsForm() {
   if (isLoading) return <Spinner />;
 
   function handleUpdate(e, field) {
+    toast.error("Temporarily settings updates are not allowed");
+    return;
     const { value } = e.target;
     if (!value) return;
 
